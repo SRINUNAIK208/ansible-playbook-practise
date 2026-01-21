@@ -1,0 +1,16 @@
+- name: checking the condition
+  hosts: local
+  connection: local
+  vars:
+     age: 20
+  tasks:
+  - name: eligible for voting
+    when: age > 18
+    ansible.builtin.debug:
+     msg: "eligible for voting"
+
+  - name: not eligible for voting 
+    when: age < 18
+    ansible.builtin.debug:
+     msg: "not eligible for voting"
+    

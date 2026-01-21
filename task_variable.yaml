@@ -1,0 +1,17 @@
+- name: task level variable
+  hosts: local
+  connection: local
+  tasks:
+  - name: print the varibles
+    ansible.builtin.debug:
+    vars:
+     Course: Ansible
+     Trainer: sivakumar
+     Duration: 10+hour
+    msg: "Hi, i am learning {{Course}} couser, trainer is {{Trainer}} and duration of the couser is {{Duration}}"
+
+  - name: print the global varible
+    ansible.builtin.debug:
+     msg: "Hi, i am learning {{Course}} couser, trainer is {{Trainer}} and duration of the couser is {{Duration}}"
+
+
