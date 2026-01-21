@@ -1,0 +1,13 @@
+- name: global varible
+  hosts: local
+  connections: local
+  vars:
+   course: "Devops"
+   tainer: "sivakumar"
+   Duration: 190+hour
+  tasks:
+  - name: print the varibles
+    ansible.builtin.debug:
+     msg: "i am learning {{course}} Couser, trainer is {{tainer}} and course duration is {{Duration}}
+     
+
