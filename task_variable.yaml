@@ -11,11 +11,11 @@
     vars:
      Course: Ansible
      Trainer: sivakumar
-     Duration: 10+hour
-     msg: "Hi, i am learning {{Course}} couser, trainer is {{Trainer}} and duration of the couser is {{Duration}}"
+     duration: 10+hour
+     msg: "Hi, i am learning {{Course}} couser, trainer is {{Trainer}} and duration of the couser is {{duration}}"
 
   - name: print the global varible
     ansible.builtin.debug:
-     msg: "Hi, i am learning {{Course}} couser, trainer is {{Trainer}} and duration of the couser is {{Duration}}"
+     msg: "Hi, i am learning {{course}} couser, trainer is {{tainer}} and duration of the couser is {{Duration}}"
 
 
