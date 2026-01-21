@@ -1,10 +1,10 @@
 - name: task level variable
   hosts: local
   connection: local
-  vars:
-   course: "Devops"
-   tainer: "sivakumar"
-   Duration: 190+hour
+  # vars:
+  #  course: "Devops"
+  #  tainer: "sivakumar"
+  #  Duration: 190+hour
   tasks:
   - name: print the varibles
     ansible.builtin.debug:
@@ -14,8 +14,8 @@
      duration: 10+hour
      msg: "Hi, i am learning {{Course}} couser, trainer is {{Trainer}} and duration of the couser is {{duration}}"
 
-  - name: print the global varible
-    ansible.builtin.debug:
-     msg: "Hi, i am learning {{course}} couser, trainer is {{tainer}} and duration of the couser is {{Duration}}"
+  # - name: print the global varible
+  #   ansible.builtin.debug:
+  #    msg: "Hi, i am learning {{course}} couser, trainer is {{tainer}} and duration of the couser is {{Duration}}"
 
 
