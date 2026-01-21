@@ -1,6 +1,6 @@
 - name: global varible
   hosts: local
-  connections: local
+  connection: local
   vars:
    course: "Devops"
    tainer: "sivakumar"
