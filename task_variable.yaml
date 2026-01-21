@@ -7,11 +7,11 @@
   #  Duration: 190+hour
   tasks:
   - name: print the varibles
-    ansible.builtin.debug:
     vars:
      Course: Ansible
      Trainer: sivakumar
      duration: 10+hour
+    ansible.builtin.debug:
      msg: "Hi, i am learning {{Course}} couser, trainer is {{Trainer}} and duration of the couser is {{duration}}"
 
   # - name: print the global varible
