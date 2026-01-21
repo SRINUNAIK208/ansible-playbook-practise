@@ -3,13 +3,13 @@
   hosts: frontend
   tasks:
   - name: install nginx if redhat
-    when: ansible_os_family == "RedHat"
     ansible.builtin.dnf:
      name: nginx
      state: present
+    when: ansible_os_family == "RedHat"
     
   - name: install nginx if ubuntu
-    when: ansible_os_family == "Debian"
     ansible.builtin.apt:
      name: nginx
      state: present
+    when: ansible_os_family == "Debian"
