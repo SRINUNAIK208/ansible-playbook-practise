@@ -1,6 +1,6 @@
 - name: playbook control using ansible fact
-  hosts: frontend
   become: true
+  hosts: frontend
   tasks:
   - name: install nginx if redhat
     when: ansible_os_family == "RedHat"
