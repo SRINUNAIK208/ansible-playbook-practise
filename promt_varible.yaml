@@ -1,4 +1,4 @@
-- name: vars_prompt
+- name: vars prompt
   hosts: local
   connection: local
   vars_prompt:
