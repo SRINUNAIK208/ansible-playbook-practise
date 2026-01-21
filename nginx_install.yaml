@@ -1,6 +1,7 @@
 - name: install nginx
-  hosts: frontend
+  hosts: local
   become: true
+  connection: local
   tasks:
   - name: installing nginx server
     ansible.builtin.dnf:
