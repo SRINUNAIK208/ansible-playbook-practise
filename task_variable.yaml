@@ -1,6 +1,10 @@
 - name: task level variable
   hosts: local
   connection: local
+  vars:
+   course: "Devops"
+   tainer: "sivakumar"
+   Duration: 190+hour
   tasks:
   - name: print the varibles
     ansible.builtin.debug:
