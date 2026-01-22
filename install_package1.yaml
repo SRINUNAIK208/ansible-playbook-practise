@@ -1,0 +1,13 @@
+- name: install and remove package
+  hosts: server
+  become: yes
+  tasks:
+  - name: package install
+    ansible.builtin.dnf:
+     name: "{{ item.name }}"
+     state: "{{ item.state}}"
+    loop:
+    - { name: 'mysql', state: 'absent'}
+    - { name: 'git', state: 'absent'}
+    - { name: 'python3', state: 'absent'}
+    - { name: 'nginx', state: 'present'}
