@@ -1,0 +1,12 @@
+- name: install package using loop
+  hosts: server
+  become: true
+  tasks:
+  - name: install {{ items }}
+    ansible.builtin.dnf:
+     name: {{ item }}
+     state: present
+    loop:
+    - mysql
+    - git 
+    - python3
