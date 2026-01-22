@@ -1,0 +1,38 @@
+- name: functions
+  hosts: local
+  connection: local
+  tasks:
+  - name: print the defult functions
+    ansible.builtin.debug:
+     msg: "{{ person | default(srinu) }}"
+
+  - name: convert map to list
+    vars:
+     Devops:
+      configurationTool: "Ansible"
+      ciandcidTool: "jenkins"
+      conatinerTool: "docker"
+    ansible.builtin.debug:
+     msg: "Tools are {{ Devops | dict2item }}"
+
+  - name: convert list to map
+    vars:
+     Devops:
+     - { key: 'configurationTool', value: 'Ansible'}
+     - { key: 'ciandcidTool', value: 'jenkins'}
+     - { key: 'conatinerTool', value: 'docker'}
+    ansible.builtin.debug:
+     msg: "Tools are {{ Devops | item2dict}}"
+
+  - name: convert upper 
+    vars:
+     person: sriniva
+    ansible.builtin.debug:
+     msg: "{{ person | upper }}"
+
+  - name: convert lower case 
+    vars:
+     person: SRINIVAS
+    ansible.builtin.debug:
+     msg: "{{ person | lower }}"
+    
