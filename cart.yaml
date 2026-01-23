@@ -1,0 +1,52 @@
+- name: configure cart server
+  hosts: cart
+  become: yes
+  tasks:
+  - name: disable new version of nodejs
+    ansible.builtin.command: dnf module disable nodejs -y
+
+  - name: enable old version of nodejs
+    ansible.builtin.command: dnf module enable nodejs:20 -y
+
+  - name: install nodejs
+    ansible.builtin.dnf:
+     name: nodejs
+     state: present
+
+  - name: create roboshop system user
+    ansible.builtin.user:
+     name: roboshop
+     system: true
+     home: /app
+     shell: /sbin/nologin
+
+  - name: create directory
+    ansible.builtin.file:
+     path: /app
+     state: directory
+
+  - name: download cart code
+    ansible.builtin.get_url:
+     url: https://roboshop-artifacts.s3.amazonaws.com/cart-v3.zip
+     dest: /tmp/cart.zip
+
+  - name: unzip the user code
+    ansible.builtin.unarchive:
+     src: /tmp/cart.zip
+     dest: /app
+     remote_src: yes
+
+  - name: install npm dependencies
+    community.general.npm:
+     path: /app
+
+  - name: set the cart systemctl service
+    ansible.builtin.copy:
+     src: cart.service
+     dest: /etc/systemd/system/cart.service
+
+  - name: enable and start the cart
+    ansible.builtin.service:
+     name: cart
+     state: started
+     enabled: yes
