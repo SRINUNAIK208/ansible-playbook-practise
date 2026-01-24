@@ -42,7 +42,7 @@
 
   - name: setup the shipping service
     ansible.builtin.copy:
-     src: shipping.server
+     src: shipping.service
      dest: /etc/systemd/system/shipping.service
 
   - name: systemctl deamon reload
